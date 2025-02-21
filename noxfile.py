@@ -1,5 +1,8 @@
-import nox
+from __future__ import annotations
+
 from pathlib import Path
+
+import nox
 
 nox.options.reuse_existing_virtualenvs = True
 
