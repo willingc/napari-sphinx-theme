@@ -26,3 +26,9 @@ repos:
     hooks:
       - id: prettier
         types_or: [yaml, markdown, html, css, scss, javascript, json]
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: 'v0.23'
+    hooks:
+      - id: validate-pyproject
+        additional_dependencies: ['validate-pyproject-schema-store[all]']
