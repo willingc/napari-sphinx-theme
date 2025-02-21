@@ -9,7 +9,7 @@ dynamic = ["version"]
 readme = "README.md"
 authors = [ {name = "napari team" }]
 
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 dependencies = [
   "pydata-sphinx-theme>=0.15.3",
   "packaging",
@@ -64,3 +64,27 @@ napari_sphinx_theme = [
 
 [project.entry-points."pygments.styles"]
 napari = "napari_sphinx_theme:NapariCodeTheme"
+
+[tool.ruff]
+fix = true
+
+lint.select = [
+  "C4",     # flake8-comprehensions
+  "E",      # pycodestyle errors
+  "F",      # pyflakes errors
+  "I",      # isort
+  "LOG",    # flake8-logging
+  "PGH",    # pygrep-hooks
+  "PYI",    # flake8-pyi
+  "RUF100", # unused noqa (yesqa)
+  "UP",     # pyupgrade
+  "W",      # pycodestyle warnings
+  "YTT",    # flake8-2020
+]
+lint.ignore = [
+  "E203", # Whitespace before ':'
+  "E221", # Multiple spaces before operator
+  "E226", # Missing whitespace around arithmetic operator
+  "E241", # Multiple spaces after ','
+]
+lint.isort.required-imports = [ "from __future__ import annotations" ]
