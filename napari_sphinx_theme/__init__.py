@@ -1,12 +1,15 @@
+from __future__ import annotations
+
 import os
 from pathlib import Path
 
-from .napari_code_theme import *
+from .napari_code_theme import NapariCodeTheme as NapariCodeTheme
 
 try:
     from ._version import version as __version__
 except ImportError:
-    __version__ = 'not-installed'
+    __version__ = "not-installed"
+
 
 def update_templates(app, pagename, templatename, context, doctree):
     """Update template names for page build."""
@@ -35,7 +38,6 @@ def update_templates(app, pagename, templatename, context, doctree):
 
 
 def set_config_defaults(app):
-
     try:
         theme = app.builder.theme_options
     except AttributeError:
@@ -56,8 +58,6 @@ def get_html_theme_path():
 # https://www.sphinx-doc.org/en/master/development/theming.html#distribute-your-theme-as-a-python-package
 def setup(app):
     here = Path(__file__).parent.resolve()
-    # Include component templates
-    # app.config.templates_path.append(str(here / "components"))
     app.add_html_theme("napari_sphinx_theme", str(here))
     app.connect("builder-inited", set_config_defaults)
     app.connect("html-page-context", update_templates)
@@ -65,4 +65,4 @@ def setup(app):
     # Include templates for sidebar
     app.config.templates_path.append(str(here / "_templates"))
 
-    return {'version': __version__, 'parallel_read_safe': True}
+    return {"version": __version__, "parallel_read_safe": True}
