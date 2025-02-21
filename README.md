@@ -12,10 +12,26 @@ info.
 
 ## Installing for development
 
-After creating a virtual environment, install the theme in editable mode:
+### Using pip
+
+1. Create a virtual environment: `python -m venv .venv`
+2. Activate virtual environment: `source .venv/bin/activate`
+3. Install the theme in editable mode:
 
 ```bash
-python -m pip install -e .
+python -m pip install -e ."[dev]"
+```
+
+### Using uv
+
+Install [uv](https://github.com/astral-sh/uv) if it is not yet installed.
+
+1. Create a virtual environment: `uv venv`
+2. Activate virtual environment: `source .venv/bin/activate`
+3. Install the theme in editable mode:
+
+```bash
+uv pip install -e ."[dev]"
 ```
 
 ## Building a demo site
