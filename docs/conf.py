@@ -1,6 +1,9 @@
+from __future__ import annotations
+
+import datetime
 import os
 import time
-import datetime
+
 from napari_sphinx_theme import __version__
 
 version = __version__
